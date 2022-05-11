@@ -3,6 +3,17 @@
 
 
 
+class ExceptionBound
+{
+
+};
+
+class ExceptionCommand
+{
+
+};
+
+
 bool deplacer_personnage(int &x, int &y, std::string cmd);
 
 bool deplacer_personnage(int &x, int &y, std::string cmd)
@@ -18,8 +29,10 @@ if (cmd == "RIGHT")
     x=x+1;
     return true;
     }
-    else
+    else{
+        throw ExceptionBound();
         return false;
+        }
     }
 
 else if (cmd == "LEFT")
@@ -28,8 +41,10 @@ else if (cmd == "LEFT")
     x--;
     return true;
     }
-    else
+    else{
+        throw ExceptionBound();
         return false;
+        }
     }
 
 else if (cmd == "DOWN")
@@ -38,8 +53,10 @@ else if (cmd == "DOWN")
     y--;
     return true;
     }
-    else
+    else{
+        throw ExceptionBound();
         return false;
+        }
     }
 
 else if (cmd == "UP")
@@ -48,14 +65,17 @@ else if (cmd == "UP")
     y++;
     return true;
     }
-    else
+    else{
+        throw ExceptionBound();
         return false;
+        }
     }
 else if (cmd == "IDLE")
     {
     return true;
     }
 else
+    throw ExceptionCommand();
         return false;
 }
 
@@ -69,7 +89,17 @@ int main(int argc, char** argv)
     while(true){
     std::getline(std::cin, saisie);
     std::cout << "Vous avez saisi " << saisie << std::endl;
+    try{
     deplacer_personnage(x, y, saisie);
+    }
+    catch(ExceptionBound&)
+    {
+        std::cout << "ExceptionBound caught, out of bounds" << std::endl;
+    }
+    catch(ExceptionCommand&)
+    {
+        std::cout << "ExceptionCommand caught, wrong command" << std::endl;
+    }
     std::cout << "X vaut " << x << ", Y vaut " << y << std::endl;
     }
 
