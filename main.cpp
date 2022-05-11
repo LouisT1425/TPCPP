@@ -22,18 +22,8 @@ int main(int argc, char** argv)
     while(true){
     std::getline(std::cin, saisie);
     std::cout << "Vous avez saisi " << saisie << std::endl;
-    try{
     PacMan.new_pos();
-    }
-    catch(ExceptionBound&)
-    {
-        std::cout << "ExceptionBound caught, out of bounds" << std::endl;
-    }
-    catch(ExceptionCommand&)
-    {
-        std::cout << "ExceptionCommand caught, wrong command" << std::endl;
-    }
-    std::cout << "X vaut " << x << ", Y vaut " << y << std::endl;
+    std::cout << "X vaut " << PacMan.getPos_x() << ", Y vaut " << PacMan.getPos_y() << std::endl;
     }
 
     return 0;

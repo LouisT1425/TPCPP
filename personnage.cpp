@@ -20,7 +20,6 @@ bool Personnage::new_pos()
         return true;
         }
         else{
-            throw ExceptionBound();
             return false;
             }
         }
@@ -32,7 +31,6 @@ bool Personnage::new_pos()
         return true;
         }
         else{
-            throw ExceptionBound();
             return false;
             }
         }
@@ -44,7 +42,6 @@ bool Personnage::new_pos()
         return true;
         }
         else{
-            throw ExceptionBound();
             return false;
             }
         }
@@ -56,7 +53,6 @@ bool Personnage::new_pos()
         return true;
         }
         else{
-            throw ExceptionBound();
             return false;
             }
         }
@@ -65,7 +61,6 @@ bool Personnage::new_pos()
         return true;
         }
     else
-        throw ExceptionCommand();
             return false;
     }
 
