@@ -14,8 +14,8 @@ const int ymax = 15;
 
 if (cmd == "RIGHT")
     {
-    if(x+=1 < xmax){
-    x++;
+    if(x < xmax){
+    x=x+1;
     return true;
     }
     else
@@ -24,7 +24,7 @@ if (cmd == "RIGHT")
 
 else if (cmd == "LEFT")
     {
-    if(x-=1 > xmin){
+    if(x > xmin){
     x--;
     return true;
     }
@@ -34,8 +34,8 @@ else if (cmd == "LEFT")
 
 else if (cmd == "DOWN")
     {
-    if(y+=1 < ymax){
-    y++;
+    if(y > ymin){
+    y--;
     return true;
     }
     else
@@ -44,8 +44,8 @@ else if (cmd == "DOWN")
 
 else if (cmd == "UP")
     {
-    if(y-=1 > ymax){
-    y--;
+    if(y < ymax){
+    y++;
     return true;
     }
     else
@@ -63,9 +63,15 @@ int main(int argc, char** argv)
 {
 
     std::string saisie;
-    std::cin >> saisie;
+    int x = 1;
+    int y = 1;
+
+    while(true){
+    std::getline(std::cin, saisie);
     std::cout << "Vous avez saisi " << saisie << std::endl;
-    int x=5, y=4;
-    deplacer_personnage(x, y, "UP");
+    deplacer_personnage(x, y, saisie);
+    std::cout << "X vaut " << x << ", Y vaut " << y << std::endl;
+    }
+
     return 0;
 }
