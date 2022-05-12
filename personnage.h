@@ -1,9 +1,11 @@
 #include <string>
+#include <iostream>
+#include <notifiercollision.h>
 #ifndef PERSONNAGE_H
 #define PERSONNAGE_H
 
 
-class Personnage
+class Personnage : public NotifierCollision
 {
 private :
 
@@ -15,8 +17,8 @@ public:
     Personnage(int x, int y);
     bool new_pos();
     void deplacementSetter(std::string deplacement);
-    void getPos_x();
-    void getPos_y();
+    int getPos_x();
+    int getPos_y();
 };
 
 #endif // PERSONNAGE_H

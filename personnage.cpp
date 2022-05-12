@@ -1,4 +1,5 @@
-#include "personnage.h"
+#include <personnage.h>
+#include <iostream>
 
 Personnage::Personnage(int x, int y)
 {
@@ -16,7 +17,8 @@ bool Personnage::new_pos()
     if (deplacementCourant == "RIGHT")
         {
         if(pos_x < xmax){
-        pos_x=pos_x+1;
+        pos_x++;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -28,6 +30,7 @@ bool Personnage::new_pos()
         {
         if(pos_x > xmin){
         pos_x--;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -38,7 +41,8 @@ bool Personnage::new_pos()
     else if (deplacementCourant == "DOWN")
         {
         if(pos_y > ymin){
-        pos_y;
+        pos_y--;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -49,7 +53,8 @@ bool Personnage::new_pos()
     else if (deplacementCourant == "UP")
         {
         if(pos_y < ymax){
-        pos_y;
+        pos_y++;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -58,10 +63,13 @@ bool Personnage::new_pos()
         }
     else if (deplacementCourant == "IDLE")
         {
+        notify(pos_x, pos_y);
         return true;
         }
-    else
+    else{
+            std::cout << "Invalid command" << std::endl;
             return false;
+        }
     }
 
 
@@ -69,4 +77,14 @@ void Personnage::deplacementSetter(std::string deplacement)
 
 {
     deplacementCourant = deplacement;
+}
+
+int Personnage::getPos_x()
+{
+    return pos_x;
+}
+
+int Personnage::getPos_y()
+{
+    return pos_y;
 }
