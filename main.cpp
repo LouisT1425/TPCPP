@@ -3,6 +3,7 @@
 #include <array>
 #include <vector>
 #include "exceptionsizetab.h"
+#include "personnage.h"
 bool detecter_collision(int ennemis_x[], int ennemis_y[], int nb_ennemis, int x, int y);
 
 
@@ -65,24 +66,24 @@ else
 int main(int argc, char** argv)
 {
 
+    Personnage PacMan(1, 1);
     std::string saisie;
+
+    while(true){
     std::getline(std::cin, saisie);
     std::cout << "Vous avez saisi " << saisie << std::endl;
-    int x=5, y=4;
-    int enx[3], enny[3];
-    deplacer_personnage(x, y, "UP");
+    PacMan.deplacementSetter(saisie);
+    PacMan.new_pos();
+    std::cout << "X vaut " << PacMan.getPos_x() << ", Y vaut " << PacMan.getPos_y() << std::endl;
+    }
+
+    int enny[3], enx[3];
     try {
         detecter_collision(enx, enny,3,6,6);
         }
     catch(ExceptionSizeTab)
     {
         std::cout << "le nombre d'ennemies n'est pas correct1" << std::endl;
-    }    try {
-        detecter_collision(enx, enny,0,6,6);
-        }
-    catch(ExceptionSizeTab)
-    {
-        std::cout << "le nombre d'ennemies n'est pas correct2" << std::endl;
     }
     return 0;
 }
