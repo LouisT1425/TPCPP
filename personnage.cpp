@@ -18,6 +18,7 @@ bool Personnage::new_pos()
         {
         if(pos_x < xmax){
         pos_x++;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -29,6 +30,7 @@ bool Personnage::new_pos()
         {
         if(pos_x > xmin){
         pos_x--;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -40,6 +42,7 @@ bool Personnage::new_pos()
         {
         if(pos_y > ymin){
         pos_y--;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -51,6 +54,7 @@ bool Personnage::new_pos()
         {
         if(pos_y < ymax){
         pos_y++;
+        notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -59,11 +63,13 @@ bool Personnage::new_pos()
         }
     else if (deplacementCourant == "IDLE")
         {
+        notify(pos_x, pos_y);
         return true;
         }
     else
             std::cout << "Invalid command" << std::endl;
             return false;
+        }
     }
 
 
