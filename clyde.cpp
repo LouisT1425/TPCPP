@@ -1,6 +1,7 @@
 #include "clyde.h"
 #include <random>
 #include <time.h>
+//on crée une fonction qui permet de faire bouger aléatoriement les fantomes
 void Clyde::new_pos()
 {
 srand(time(NULL));
