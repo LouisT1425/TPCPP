@@ -1,8 +1,9 @@
 #ifndef ENNEMI_H
 #define ENNEMI_H
 #include "observercollision.h"
+#include "notifiercollision.h"
 
-class Ennemi :public ObserverCollision
+class Ennemi :public ObserverCollision, public NotifierCollision
 {
 public:
     Ennemi();
