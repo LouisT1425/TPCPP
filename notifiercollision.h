@@ -1,13 +1,13 @@
-#include <vector>
 #ifndef NOTIFIERCOLLISION_H
 #define NOTIFIERCOLLISION_H
+#include <vector>
 
 class ObserverCollision;
 
 class NotifierCollision
 {
 private :
-    std::vector<ObserverCollision*> Observateurs;
+    std::vector<ObserverCollision*> _observateurs;
 public:
     NotifierCollision();
 

@@ -1,6 +1,10 @@
 #include "clyde.h"
 #include <random>
 #include <time.h>
+
+Clyde::Clyde(){
+
+}
 //on crée une fonction qui permet de faire bouger aléatoriement les fantomes
 void Clyde::new_pos()
 {
@@ -22,4 +26,8 @@ if(val == 8 || val ==9 || val == 0)
 {
     deplacer(0, -1);
 }
+}
+
+Clyde::~Clyde(){
+
 }

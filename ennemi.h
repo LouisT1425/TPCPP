@@ -10,6 +10,8 @@ public:
     virtual void new_pos();
     void deplacer(int x, int y);
     bool test_collision(int x, int y);
+
+    virtual ~Ennemi();
 private:
     int pos_x, pos_y;
 

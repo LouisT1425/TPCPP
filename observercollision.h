@@ -1,12 +1,13 @@
 #ifndef OBSERVERCOLLISION_H
 #define OBSERVERCOLLISION_H
-#include "notifiercollision.h"
+
+class NotifierCollision;
 
 class ObserverCollision
 {
 public:
     //declaration des fonctions en virutel pur afin de les redefinir dans d'autre classes
-    void collision(NotifierCollision notifieur);
+    virtual void collision(NotifierCollision* notifieur);
     virtual bool test_collision(int x, int y) = 0;
 };
 

@@ -5,7 +5,10 @@
 class Clyde :public Ennemi
 {
 public:
+    Clyde();
     void new_pos();
+
+    virtual ~Clyde();
 };
 
 #endif // CLYDE_H

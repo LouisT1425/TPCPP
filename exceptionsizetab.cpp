@@ -1,6 +1,6 @@
 #include "exceptionsizetab.h"
 #include <iostream>
-ExceptionSizeTab::ExceptionSizeTab()
+ExceptionSizeTab::ExceptionSizeTab() noexcept
 {
 
 }

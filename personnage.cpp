@@ -1,10 +1,15 @@
 #include "personnage.h"
 #include <iostream>
+#include <iostream>
 
 Personnage::Personnage(int x, int y)
 {
     pos_x = x;
     pos_y = y;
+}
+
+bool Personnage::test_collision(int x, int y){
+    return pos_x == x && pos_y==y;
 }
 
 bool Personnage::new_pos()
@@ -18,7 +23,7 @@ bool Personnage::new_pos()
         {
         if(pos_x < xmax){
         pos_x++;
-        notify(pos_x, pos_y);
+        this->notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -30,7 +35,7 @@ bool Personnage::new_pos()
         {
         if(pos_x > xmin){
         pos_x--;
-        notify(pos_x, pos_y);
+        this->notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -42,7 +47,7 @@ bool Personnage::new_pos()
         {
         if(pos_y > ymin){
         pos_y--;
-        notify(pos_x, pos_y);
+        this->notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -54,7 +59,7 @@ bool Personnage::new_pos()
         {
         if(pos_y < ymax){
         pos_y++;
-        notify(pos_x, pos_y);
+        this->notify(pos_x, pos_y);
         return true;
         }
         else{
@@ -63,10 +68,10 @@ bool Personnage::new_pos()
         }
     else if (deplacementCourant == "IDLE")
         {
-        notify(pos_x, pos_y);
+        this->notify(pos_x, pos_y);
         return true;
         }
-    else
+    else{
             std::cout << "Invalid command" << std::endl;
             return false;
         }
@@ -87,4 +92,8 @@ int Personnage::getPos_x()
 int Personnage::getPos_y()
 {
     return pos_y;
+}
+
+Personnage::~Personnage(){
+
 }
