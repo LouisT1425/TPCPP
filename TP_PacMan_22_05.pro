@@ -1,4 +1,5 @@
-QT -= gui
+QT += core gui
+QT += widgets
 
 CONFIG += c++17 console
 CONFIG -= app_bundle
@@ -18,6 +19,7 @@ SOURCES += \
         #interactive.cpp \
         main.cpp \
 #        movable.cpp \
+    mainwindow.cpp \
         notifiercollision.cpp \
         observercollision.cpp \
         personnage.cpp \
@@ -39,7 +41,11 @@ HEADERS += \
     #exceptionsizetab.h \
 #    interactive.h \
 #    movable.h \
+    mainwindow.h \
     notifiercollision.h \
     observercollision.h \
     personnage.h \
 #    regularmove.h
+
+FORMS += \
+    mainwindow.ui
