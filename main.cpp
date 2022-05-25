@@ -4,6 +4,7 @@
 #include <vector>
 #include "exceptionsizetab.h"
 #include "personnage.h"
+#include "clyde.h"
 //nous devons initialiser la fonction avant le main afin que nous puissions l'utiliser dans le main
 bool detecter_collision(int ennemis_x[], int ennemis_y[], int nb_ennemis, int x, int y);
 
@@ -68,9 +69,10 @@ int main(int argc, char** argv)
 {
 
     Personnage PacMan(1, 1);
-    std::string saisie;
 
-    while(true){
+    std::string saisie;
+    while(true)
+    {
     std::getline(std::cin, saisie);
     std::cout << "Vous avez saisi " << saisie << std::endl;
     PacMan.deplacementSetter(saisie);
@@ -80,11 +82,11 @@ int main(int argc, char** argv)
 
     int enny[3], enx[3];
     try {
-        detecter_collision(enx, enny,3,6,6);
+        detecter_collision(enx, enny,4,6,6);
         }
     catch(ExceptionSizeTab)
     {
-        std::cout << "le nombre d'ennemies n'est pas correct1" << std::endl;
+        std::cout << "le nombre d'ennemies n'est pas correct" << std::endl;
     }
     return 0;
 }
@@ -92,7 +94,7 @@ int main(int argc, char** argv)
 bool detecter_collision(int ennemis_x[], int ennemis_y[], int nb_ennemis, int x, int y)
 {
     //creation d'une variable de type ExceptionSizeTab afin de pouvoir levée une exception si le nombre d'ennemi est inférieur a 0
-    ExceptionSizeTab testdebug;
+    ExceptionSizeTab test;
     int i = 0;
     int u = 0;
     bool collision = 0;
@@ -115,9 +117,9 @@ bool detecter_collision(int ennemis_x[], int ennemis_y[], int nb_ennemis, int x,
         }
         return collision;
     }
-    //si le nombre d'ennemis est inferieur a  alors une exception est levée
+    //si le nombre d'ennemis est inferieur ou egale a 0 alors une exception est levée
     else
     {
-        throw testdebug;
+        throw test;
     }
 }

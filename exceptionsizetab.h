@@ -4,7 +4,8 @@
 
 class ExceptionSizeTab
 {
-private:
+public:
+    ExceptionSizeTab();
 
 };
 

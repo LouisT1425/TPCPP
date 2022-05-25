@@ -1,6 +1,6 @@
 #include <notifiercollision.h>
 #include <algorithm>
-
+#include "observercollision.h"
 NotifierCollision::NotifierCollision()
 {
 

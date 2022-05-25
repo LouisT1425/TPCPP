@@ -67,9 +67,11 @@ bool Personnage::new_pos()
         return true;
         }
     else
+    {
             std::cout << "Invalid command" << std::endl;
             return false;
-        }
+    }
+
     }
 
 
