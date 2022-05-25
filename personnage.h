@@ -3,23 +3,26 @@
 #include <string>
 #include "observercollision.h"
 #include "notifiercollision.h"
+#include "interactive.h"
 
-
-class Personnage : public ObserverCollision, public NotifierCollision
+class Personnage : public ObserverCollision, public NotifierCollision, public Interactive
 {
 private :
 
-    int pos_x = 1;
-    int pos_y = 1;
     std::string deplacementCourant;
 
 public:
     Personnage(int x, int y);
     bool new_pos();
     void deplacementSetter(std::string deplacement);
+
+    std::string getDeplacementCourant();
     int getPos_x();
     int getPos_y();
 
+    void key_pressed(char key);
+    void arrow_pressed(std::string cmd);
+    void update_pos();
     virtual bool test_collision(int x, int y);
 
     virtual ~Personnage();

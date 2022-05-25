@@ -2,8 +2,9 @@
 #include <iostream>
 #include <iostream>
 
-Personnage::Personnage(int x, int y)
+Personnage::Personnage(int x, int y):Interactive(x, y, parent)
 {
+    init_animation_perso();
     pos_x = x;
     pos_y = y;
 }
@@ -84,6 +85,11 @@ void Personnage::deplacementSetter(std::string deplacement)
     deplacementCourant = deplacement;
 }
 
+std::string Personnage::getDeplacementCourant()
+{
+    return deplacementCourant;
+}
+
 int Personnage::getPos_x()
 {
     return pos_x;
@@ -92,6 +98,36 @@ int Personnage::getPos_x()
 int Personnage::getPos_y()
 {
     return pos_y;
+}
+
+void Personnage::arrow_pressed(std::string cmd){
+    if(cmd == "UP"){
+        deplacementSetter("UP");
+        new_pos();
+    }
+
+    if(cmd == "DOWN"){
+        deplacementSetter("DOWN");
+        new_pos();
+    }
+
+    if(cmd == "RIGHT"){
+        deplacementSetter("RIGHT");
+        new_pos();
+    }
+
+    if(cmd == "LEFT"){
+        deplacementSetter("LEFT");
+        new_pos();
+    }
+}
+
+void Personnage::key_pressed(char key){
+    std::cout << "Please use the keyboard arrows to move";
+}
+
+void Personnage::update_pos(){
+
 }
 
 Personnage::~Personnage(){

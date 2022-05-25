@@ -1,4 +1,5 @@
 #include "interactive.h"
+#include "personnage.h"
 
 
 Interactive::Interactive(int x, int y, Background* parent):RegularMove(x, y, parent)
