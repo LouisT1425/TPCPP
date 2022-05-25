@@ -103,22 +103,22 @@ int Personnage::getPos_y()
 void Personnage::arrow_pressed(std::string cmd){
     if(cmd == "UP"){
         deplacementSetter("UP");
-        new_pos();
+
     }
 
     if(cmd == "DOWN"){
         deplacementSetter("DOWN");
-        new_pos();
+
     }
 
     if(cmd == "RIGHT"){
         deplacementSetter("RIGHT");
-        new_pos();
+
     }
 
     if(cmd == "LEFT"){
         deplacementSetter("LEFT");
-        new_pos();
+
     }
 }
 
@@ -127,7 +127,7 @@ void Personnage::key_pressed(char key){
 }
 
 void Personnage::update_pos(){
-
+    new_pos();
 }
 
 Personnage::~Personnage(){
