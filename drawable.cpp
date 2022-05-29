@@ -19,7 +19,6 @@ void Drawable::set_background_image(std::string filename)
     QString stylesheet = "border-image: url(";
     stylesheet += IMG_PATH + QString::fromStdString(filename) + ");";
     this->setStyleSheet(stylesheet);
-    qDebug() << this->styleSheet();
 }
 
 void Drawable::set_background_color(int r, int g, int b, int a)

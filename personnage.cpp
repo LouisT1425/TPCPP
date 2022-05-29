@@ -2,15 +2,18 @@
 #include <iostream>
 #include <iostream>
 
-Personnage::Personnage(int x, int y):Interactive(x, y, parent)
+Personnage::Personnage(int x, int y, Background* parent):Interactive(x, y, parent)
 {
     init_animation_perso();
-    pos_x = x;
-    pos_y = y;
+
 }
 
 bool Personnage::test_collision(int x, int y){
     return pos_x == x && pos_y==y;
+}
+
+void Personnage::collision(NotifierCollision *notifieur){
+    std::cout << "Il y a une collision avec un personnage" << std::endl;
 }
 
 bool Personnage::new_pos()
@@ -47,7 +50,7 @@ bool Personnage::new_pos()
     else if (deplacementCourant == "DOWN")
         {
         if(pos_y > ymin){
-        pos_y--;
+        pos_y++;
         this->notify(pos_x, pos_y);
         return true;
         }
@@ -59,7 +62,7 @@ bool Personnage::new_pos()
     else if (deplacementCourant == "UP")
         {
         if(pos_y < ymax){
-        pos_y++;
+        pos_y--;
         this->notify(pos_x, pos_y);
         return true;
         }
@@ -121,6 +124,8 @@ void Personnage::arrow_pressed(std::string cmd){
 
     }
 }
+
+
 
 void Personnage::key_pressed(char key){
     std::cout << "Please use the keyboard arrows to move";

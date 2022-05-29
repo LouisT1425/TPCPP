@@ -5,41 +5,46 @@
 #include "exceptionsizetab.h"
 #include "personnage.h"
 #include "clyde.h"
+#include "mainwindow.h"
+#include "background.h"
+#include "pastille.h"
+#include <QApplication>
+
 //nous devons initialiser la fonction avant le main afin que nous puissions l'utiliser dans le main
 bool detecter_collision(int ennemis_x[], int ennemis_y[], int nb_ennemis, int x, int y);
 
 int main(int argc, char** argv)
 {
+    QApplication *app = new QApplication(argc, argv);
+    MainWindow *window = new MainWindow();
+    window->show();
+//    std::string saisie, saisieClyde;
 
-    Personnage *pacMan = new Personnage(1, 1);
-    Clyde *fantome1 = new Clyde();
-    Clyde *fantome2 = new Clyde();
-    std::string saisie, saisieClyde;
+//    fantome1->addObserver(pacMan);
+//    fantome2->addObserver(pacMan);
+//    pacMan->addObserver(fantome1);
+//    pacMan->addObserver(fantome2);
+//    pacMan->addObserver(pastille);
 
-    fantome1->addObserver(pacMan);
-    fantome2->addObserver(pacMan);
-    pacMan->addObserver(fantome1);
-    pacMan->addObserver(fantome2);
+//    while(true){
+//        std::getline(std::cin, saisie);
+//        std::cout << "Vous avez saisi " << saisie << std::endl;
+//        pacMan->deplacementSetter(saisie);
+//        pacMan->new_pos();
+//        std::cout << "X vaut " << pacMan->getPos_x() << ", Y vaut " << pacMan->getPos_y() << std::endl;
+//    }
 
-    while(true){
-        std::getline(std::cin, saisie);
-        std::cout << "Vous avez saisi " << saisie << std::endl;
-        pacMan->deplacementSetter(saisie);
-        pacMan->new_pos();
-        std::cout << "X vaut " << pacMan->getPos_x() << ", Y vaut " << pacMan->getPos_y() << std::endl;
-    }
-
-    int enny[3], enx[3];
-    try {
-        detecter_collision(enx, enny,3,6,6);
-        }
-    catch(ExceptionSizeTab)
-    {
-        std::cout << "le nombre d'ennemies n'est pas correct1" << std::endl;
-    }
-    return 0;
+//    int enny[3], enx[3];
+//    try {
+//        detecter_collision(enx, enny,3,6,6);
+//        }
+//    catch(ExceptionSizeTab)
+//    {
+//        std::cout << "le nombre d'ennemies n'est pas correct1" << std::endl;
+//    }
+    return app->exec();
 }
-////declaration de la fonction
+//declaration de la fonction
 //bool detecter_collision(int ennemis_x[], int ennemis_y[], int nb_ennemis, int x, int y)
 //{
 //    //creation d'une variable de type ExceptionSizeTab afin de pouvoir levée une exception si le nombre d'ennemi est inférieur a 0

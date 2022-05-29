@@ -23,34 +23,36 @@ RegularMove::RegularMove(int x, int y, Background* parent) : Movable(x, y, paren
 void RegularMove::_update_pos()
 {
     update_pos();
+    this->positionner(pos_x, pos_y);
+
 }
 
 #ifdef ANIMATION
-void RegularMove::positionner(int x, int y)
-{
-    if (parent)
-    {
-        double factor_x = (double)parent->width()/(double)parent->base_width();
-        double factor_y = (double)parent->height()/(double)parent->base_height();
-        QPoint offset = QPoint(x*sizeHint().width()*factor_x, y*sizeHint().height()*factor_y);
+//void RegularMove::positionner(int x, int y)
+//{
+//    if (parent)
+//    {
+//        double factor_x = (double)parent->width()/(double)parent->base_width();
+//        double factor_y = (double)parent->height()/(double)parent->base_height();
+//        QPoint offset = QPoint(x*sizeHint().width()*factor_x, y*sizeHint().height()*factor_y);
 
-        QRect geom;
-        geom.setTop(y*sizeHint().height()*factor_y);
-        geom.setLeft(x*sizeHint().width()*factor_x);
-        geom.setWidth(sizeHint().width()*factor_x);
-        geom.setHeight(sizeHint().height()*factor_y);
-        correct_margins(geom);
-        pos_x = x;
-        pos_y = y;
-        mov_animation.setTargetObject(this);
-        mov_animation.setPropertyName("geometry");
-        mov_animation.setStartValue(this->geometry());
-        mov_animation.setEndValue(geom);
-        mov_animation.setDuration(300);
-        mov_animation.start();
-        qDebug() << pos_x << pos_y << this->geometry()  << geom;
-    }
-}
+//        QRect geom;
+//        geom.setTop(y*sizeHint().height()*factor_y);
+//        geom.setLeft(x*sizeHint().width()*factor_x);
+//        geom.setWidth(sizeHint().width()*factor_x);
+//        geom.setHeight(sizeHint().height()*factor_y);
+//        correct_margins(geom);
+//        pos_x = x;
+//        pos_y = y;
+//        mov_animation.setTargetObject(this);
+//        mov_animation.setPropertyName("geometry");
+//        mov_animation.setStartValue(this->geometry());
+//        mov_animation.setEndValue(geom);
+//        mov_animation.setDuration(300);
+//        mov_animation.start();
+//        qDebug() << pos_x << pos_y << this->geometry()  << geom;
+//    }
+//}
 
 void RegularMove::add_animation(int start, int end, int loop, int duration, std::string pattern)
 {

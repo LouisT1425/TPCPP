@@ -28,7 +28,6 @@ public:
 
     void init_animation_perso();
     void init_animation_ennemi(std::string);
-    void positionner(int x, int y);
     void show_collision() {emit collision();}
 #endif
 

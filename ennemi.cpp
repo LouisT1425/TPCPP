@@ -1,7 +1,9 @@
 #include "ennemi.h"
+#include <iostream>
 
-Ennemi::Ennemi(){
-
+Ennemi::Ennemi(int x, int y, Background *parent): RegularMove(x, y, parent)
+{
+    init_animation_ennemi("clyde");
 }
 
 void Ennemi::new_pos(){
@@ -24,6 +26,33 @@ bool Ennemi::test_collision(int x, int y)
         dedans =1;
     }
     return dedans;
+}
+
+void Ennemi::collision(NotifierCollision *notifieur){
+    std::cout << "Il y a une collision avec un ennemi" << std::endl;
+}
+
+void Ennemi::update_pos()
+{
+    srand(time(NULL));
+    int val = rand() % 10;
+    if(val == 1 || val ==2)
+    {
+        deplacer(1, 0);
+    }
+    if(val == 3 || val ==4)
+    {
+        deplacer(-1, 0);
+    }
+    if(val == 5 || val ==6 || val ==7)
+    {
+        deplacer(0, 1);
+    }
+    if(val == 8 || val ==9 || val == 0)
+    {
+        deplacer(0, -1);
+    }
+
 }
 
 Ennemi::~Ennemi(){
