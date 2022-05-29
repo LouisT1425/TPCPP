@@ -1,5 +1,6 @@
 #include "drawableelem.h"
 #include <QDebug>
+#include <iostream>
 
 DrawableElem::DrawableElem(int x, int y, Background* parent) : Drawable(parent), pos_x(x), pos_y(y)
 {
@@ -18,6 +19,7 @@ void DrawableElem::resized(double fx, double fy)
 
     correct_margins(geom);
     this->setGeometry(geom);
+    std::cout << "resized" << std::endl;
 }
 
 

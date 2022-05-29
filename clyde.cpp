@@ -8,7 +8,6 @@ Clyde::Clyde(int x, int y, Background* parent) : Ennemi(x, y, parent){
 //on crée une fonction qui permet de faire bouger aléatoriement les fantomes
 void Clyde::new_pos()
 {
-    srand(time(NULL));
     int val = rand() % 10;
     if(val == 1 || val ==2)
     {

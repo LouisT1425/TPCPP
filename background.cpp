@@ -1,5 +1,6 @@
 #include "background.h"
 #include <QResizeEvent>
+#include <iostream>
 
 Background::Background(QWidget *parent) : Drawable(parent)
 {

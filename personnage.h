@@ -17,8 +17,8 @@ public:
     void deplacementSetter(std::string deplacement);
 
     std::string getDeplacementCourant();
-    int getPos_x();
-    int getPos_y();
+//    int getPos_x();
+//    int getPos_y();
 
     void key_pressed(char key);
     void arrow_pressed(std::string cmd);

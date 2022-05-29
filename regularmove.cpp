@@ -23,7 +23,7 @@ RegularMove::RegularMove(int x, int y, Background* parent) : Movable(x, y, paren
 void RegularMove::_update_pos()
 {
     update_pos();
-    this->positionner(pos_x, pos_y);
+
 
 }
 

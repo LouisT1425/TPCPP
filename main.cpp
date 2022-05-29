@@ -9,12 +9,15 @@
 #include "background.h"
 #include "pastille.h"
 #include <QApplication>
+#include <time.h>
 
 //nous devons initialiser la fonction avant le main afin que nous puissions l'utiliser dans le main
 bool detecter_collision(int ennemis_x[], int ennemis_y[], int nb_ennemis, int x, int y);
 
 int main(int argc, char** argv)
 {
+    srand(time(NULL));
+
     QApplication *app = new QApplication(argc, argv);
     MainWindow *window = new MainWindow();
     window->show();

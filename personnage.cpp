@@ -19,17 +19,21 @@ void Personnage::collision(NotifierCollision *notifieur){
 bool Personnage::new_pos()
 {
     const int xmin = 0;
-    const int xmax = 32;
+    const int xmax = 31;
     const int ymin = 0;
-    const int ymax = 15;
+    const int ymax = 14;
 
     if (deplacementCourant == "RIGHT")
         {
         if(pos_x < xmax){
         pos_x++;
         this->notify(pos_x, pos_y);
-        return true;
         }
+        else if(pos_x == xmax){
+            pos_x = 0;
+            this->notify(pos_x, pos_y);
+        }
+
         else{
             return false;
             }
@@ -40,7 +44,10 @@ bool Personnage::new_pos()
         if(pos_x > xmin){
         pos_x--;
         this->notify(pos_x, pos_y);
-        return true;
+        }
+        else if(pos_x == xmin){
+            pos_x = 31;
+            this->notify(pos_x, pos_y);
         }
         else{
             return false;
@@ -49,10 +56,13 @@ bool Personnage::new_pos()
 
     else if (deplacementCourant == "DOWN")
         {
-        if(pos_y > ymin){
+        if(pos_y < ymax){
         pos_y++;
         this->notify(pos_x, pos_y);
-        return true;
+        }
+        else if(pos_y == ymax){
+            pos_y = 0;
+            this->notify(pos_x, pos_y);
         }
         else{
             return false;
@@ -61,10 +71,13 @@ bool Personnage::new_pos()
 
     else if (deplacementCourant == "UP")
         {
-        if(pos_y < ymax){
+        if(pos_y > ymin){
         pos_y--;
         this->notify(pos_x, pos_y);
-        return true;
+        }
+        else if(pos_y == ymin){
+            pos_y = 14;
+            this->notify(pos_x, pos_y);
         }
         else{
             return false;
@@ -73,13 +86,13 @@ bool Personnage::new_pos()
     else if (deplacementCourant == "IDLE")
         {
         this->notify(pos_x, pos_y);
-        return true;
         }
     else{
-            std::cout << "Invalid command" << std::endl;
             return false;
         }
-    }
+
+    return true;
+   }
 
 
 void Personnage::deplacementSetter(std::string deplacement)
@@ -93,15 +106,15 @@ std::string Personnage::getDeplacementCourant()
     return deplacementCourant;
 }
 
-int Personnage::getPos_x()
-{
-    return pos_x;
-}
+//int Personnage::getPos_x()
+//{
+//    return pos_x;
+//}
 
-int Personnage::getPos_y()
-{
-    return pos_y;
-}
+//int Personnage::getPos_y()
+//{
+//    return pos_y;
+//}
 
 void Personnage::arrow_pressed(std::string cmd){
     if(cmd == "UP"){
@@ -133,6 +146,7 @@ void Personnage::key_pressed(char key){
 
 void Personnage::update_pos(){
     new_pos();
+    this->positionner(pos_x, pos_y);
 }
 
 Personnage::~Personnage(){
