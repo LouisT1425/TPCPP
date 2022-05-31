@@ -18,6 +18,7 @@ void Personnage::collision(NotifierCollision *notifieur){
 
 bool Personnage::new_pos()
 {
+
     const int xmin = 0;
     const int xmax = 31;
     const int ymin = 0;

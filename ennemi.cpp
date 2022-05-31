@@ -15,10 +15,10 @@ void Ennemi::deplacer(int x, int y)
 {
     pos_x = pos_x + x;
     pos_y = pos_y + y;
-    if(pos_x == 32) pos_x = 1;
+    if(pos_x == 31) pos_x = 0;
     else if(pos_x == -1) pos_x = 31;
-    if(pos_y == 16) pos_y = 1;
-    else if(pos_y == 0) pos_y = 14;
+    if(pos_y == 15) pos_y = 0;
+    else if(pos_y == -1) pos_y = 14;
 
     notify(pos_x, pos_y);
 
@@ -40,7 +40,6 @@ void Ennemi::collision(NotifierCollision *notifieur){
 
 void Ennemi::update_pos()
 {
-    srand(time(NULL));
     int val = rand() % 10;
     if(val == 1 || val ==2)
     {
