@@ -12,3 +12,5 @@ int main(int argc, char** argv)
 
     return app->exec();
 }
+
+// Attention à bien changer le working directory pour le dossier contenant "Images" sinon la partie graphique ne marche pas.
