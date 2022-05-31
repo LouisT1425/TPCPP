@@ -23,7 +23,7 @@ void Ennemi::deplacer(int x, int y)
     notify(pos_x, pos_y);
 
 }
-//creation de la fonction test_collision qui regarde si la position du phantome est a la meme position qu'un personnage
+//creation de la fonction test_collision qui regarde si la position du fantome est a la meme position qu'un personnage
 bool Ennemi::test_collision(int x, int y)
 {
     bool dedans = 0;
